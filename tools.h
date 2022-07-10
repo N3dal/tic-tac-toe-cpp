@@ -19,3 +19,31 @@ std::string get_os_name()
     return "Other";
     #endif
 } 
+
+
+void clear(){
+
+    /*wipe terminal screen*/
+
+    std::string OS_NAME = get_os_name();
+
+    if (OS_NAME=="Linux" || OS_NAME=="Unix" || OS_NAME=="Mac OSX" || OS_NAME=="FreeBSD"){
+        // For all *nix machines.
+        
+        std::system("clear");
+    }
+
+    else if (OS_NAME=="Windows 32-bit" || OS_NAME=="Windows 64-bit"){
+
+        std::system("cls");
+
+    }
+
+    else{
+        // for all other os in the world.
+        //std::system("your-command")
+
+    }
+
+
+}
