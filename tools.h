@@ -1,3 +1,5 @@
+#ifndef TOOLS
+#define TOOLS
 std::string get_os_name()
 {
     /*return os name*/
@@ -47,3 +49,4 @@ void clear(){
 
 
 }
+#endif
