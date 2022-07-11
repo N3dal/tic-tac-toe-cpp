@@ -39,11 +39,19 @@ int get_user_move(std::string msg){
     /*
     Docstring
     */
-
+    
     int usr_input;
 
     std::cout << msg;
     std::cin >> usr_input;
+
+    while (is_available_move(usr_input)==0){
+            // warn the user.
+            std::cout << "This is not available move!!!\n";
+
+            std::cout << msg;
+            std::cin >> usr_input;
+    }
 
     return usr_input;
 
