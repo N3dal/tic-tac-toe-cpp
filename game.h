@@ -13,6 +13,7 @@ char game_map[9] = {' ', 'X', 'O', ' ', ' ', ' ', ' ', ' ', ' '};
 // game prototypes.
 void print_game_map();
 int get_user_move();
+int get_computer_move();
 int is_available_move(int );
 
 
@@ -45,16 +46,44 @@ int get_user_move(std::string msg){
     std::cout << msg;
     std::cin >> usr_input;
 
+    // make sure to remove one from the user input.
+    usr_input--;
+
     while (is_available_move(usr_input)==0){
             // warn the user.
             std::cout << "This is not available move!!!\n";
 
             std::cout << msg;
             std::cin >> usr_input;
+
+            // make sure to remove one from the user input.
+            usr_input--;
     }
 
     return usr_input;
 
+}
+
+int get_computer_move(){
+    /*
+    generate random number depending on the available,
+    in simple words select random choice from the available moves. 
+    */
+
+    srand(time(0));
+
+    int random_choice = rand() % 9;
+
+
+    // note -1 indicate for not available place in the game-board.
+
+    while(available_moves[random_choice] == -1){
+        random_choice = rand() % 9;
+    }
+
+    return available_moves[random_choice];
+
+    
 }
 
 int is_available_move(int move){
