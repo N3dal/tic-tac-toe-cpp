@@ -24,7 +24,10 @@ int main(void){
     // wipe terminal at first.
     clear();
 
-    print_game_map();
+    // print_game_map();
+    // cout << is_available_move(12) << endl;
+
+
 
     return 0;
 }
