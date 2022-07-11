@@ -12,6 +12,7 @@ char game_map[9] = {' ', 'X', 'O', ' ', ' ', ' ', ' ', ' ', ' '};
 
 // game prototypes.
 void print_game_map();
+int get_user_move();
 
 
 void print_game_map(){
@@ -30,6 +31,20 @@ void print_game_map(){
     std:: cout << "╰───┴───┴───╯\n";
 
 
+
+}
+
+int get_user_move(std::string msg){
+    /*
+    Docstring
+    */
+
+    int usr_input;
+
+    std::cout << msg;
+    std::cin >> usr_input;
+
+    return usr_input;
 
 }
 
