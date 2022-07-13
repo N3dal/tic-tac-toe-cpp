@@ -96,16 +96,15 @@ int is_available_move(int move){
     check out if either computer or the user move is available or not,
     return '1' if move is available other wise is return '0'.
     */
-    int available = 0;
+
     for (int i=0; i<9; i++){
         if (move == available_moves[i]){
-            available = 1;
-            break;
+            return 1;
         }
 
     }
 
-    return available;
+    return 0;
 }
 
 int who_win(std::string usr_character, std::string computer_character){
