@@ -19,6 +19,7 @@ int get_user_move(void);
 int get_computer_move(void);
 int is_available_move(int );
 int who_win(std::string, std::string);
+int any_available_move(void);
 
 
 void print_game_map(void){
@@ -171,6 +172,22 @@ int who_win(std::string usr_character, std::string computer_character){
 
     // if game still going.
     return -1;
+}
+
+int any_available_move(void){
+    /*
+        checkout if still there any available moves in the available move array.
+        if there's any available move the return 1, other wise return 0;
+    */
+    
+
+    for(int i=0; i<9; i++){
+        if (available_moves[i] != -1){
+            return 1;
+        }
+    }
+
+    return 0;
 }
 
 #endif
