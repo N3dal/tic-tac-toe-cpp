@@ -27,7 +27,8 @@ int main(void){
     // print_game_map();
     // cout << is_available_move(12) << endl;
 
-    cout << get_computer_move() << endl;
+    print_game_map();
+    cout <<  who_win("X", "O");
 
 
 
