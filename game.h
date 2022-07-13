@@ -7,7 +7,10 @@ this file contain all function for the game and also the game defaults.
 
 // new game defaults.
 int available_moves[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-char game_map[9] = {' ', 'X', 'O', ' ', ' ', ' ', ' ', ' ', ' '};
+
+// i use the string type instead of char type,
+// to be able to concatenate the chars later.
+std::string game_map[9] = {"X", "X", "O", "O", "X", "X", "X", "O", "O"};
 
 
 // game prototypes.
@@ -15,7 +18,7 @@ void print_game_map();
 int get_user_move(void);
 int get_computer_move(void);
 int is_available_move(int );
-int is_win(void);
+int who_win(std::string, std::string);
 
 
 void print_game_map(void){
@@ -104,6 +107,70 @@ int is_available_move(int move){
     return available;
 }
 
-// int is_win(void)
+int who_win(std::string usr_character, std::string computer_character){
+    /*
+    check out if the user win or the computer win.
+    and tell who is win depending on the user char,
+    and computer char.
+
+    return 1 if user win.
+    return 2 if computer win.
+    return 0 if its draw.
+    return -1 if game still going.
+    */
+
+    // all available moves to win in the game.
+    int moves_to_win[8][3] = {\
+
+        // horizontal moves to win.
+        {0, 1, 2},\
+        {3, 4, 5},\
+        {6, 7, 8},\
+
+        // vertical moves to win.
+        {0, 3, 6},\
+        {1, 4, 7},\
+        {2, 5, 8},\
+
+        // diagonal moves to win.
+        {0, 4, 8},\
+        {2, 4, 6},\
+    };
+
+    // create temp string to check the moves.
+    std::string moves_check_string;
+
+    // create temp indices for game-board places.
+    int place0, place1, place2;
+
+    std::string usr_pattern_to_win = usr_character + usr_character + usr_character;
+    std::string computer_pattern_to_win = computer_character + computer_character + computer_character;
+
+
+
+
+    for (int i=0; i<8; i++){
+
+        place0 = moves_to_win[i][0];
+        place1 = moves_to_win[i][1];
+        place2 = moves_to_win[i][2];
+
+        moves_check_string = game_map[place0] + game_map[place1] + game_map[place2];
+
+        if (moves_check_string==usr_pattern_to_win){
+            // usr win.
+            return 1;
+        }
+
+        else if (moves_check_string==computer_pattern_to_win){
+            // computer win.
+            return 2;
+        }
+
+    }
+
+    // if game still going.
+    return -1;
+}
 
 #endif
