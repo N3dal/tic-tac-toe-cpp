@@ -177,7 +177,7 @@ int who_win(std::string usr_character, std::string computer_character){
 int any_available_move(void){
     /*
         checkout if still there any available moves in the available move array.
-        if there's any available move the return 1, other wise return 0;
+        if there's any available move then return 1, other wise return 0;
     */
     
 
