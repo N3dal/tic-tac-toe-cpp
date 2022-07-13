@@ -1,6 +1,6 @@
 #ifndef TOOLS
 #define TOOLS
-std::string get_os_name()
+std::string get_os_name(void)
 {
     /*return os name*/
 
@@ -23,7 +23,7 @@ std::string get_os_name()
 } 
 
 
-void clear(){
+void clear(void){
 
     /*wipe terminal screen*/
 

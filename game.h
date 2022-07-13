@@ -12,12 +12,13 @@ char game_map[9] = {' ', 'X', 'O', ' ', ' ', ' ', ' ', ' ', ' '};
 
 // game prototypes.
 void print_game_map();
-int get_user_move();
-int get_computer_move();
+int get_user_move(void);
+int get_computer_move(void);
 int is_available_move(int );
+int is_win(void);
 
 
-void print_game_map(){
+void print_game_map(void){
     /*
     draw the game map for the users and update it when they do any move.
 
@@ -64,7 +65,7 @@ int get_user_move(std::string msg){
 
 }
 
-int get_computer_move(){
+int get_computer_move(void){
     /*
     generate random number depending on the available,
     in simple words select random choice from the available moves. 
@@ -102,5 +103,7 @@ int is_available_move(int move){
 
     return available;
 }
+
+// int is_win(void)
 
 #endif
