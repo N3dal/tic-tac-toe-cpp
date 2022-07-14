@@ -29,6 +29,7 @@ int main(void){
 
 
     main_menu();
+    cout << get_usr_choice();
 
 
 
