@@ -1,6 +1,6 @@
 /*
 
-
+TODO: ADD colors;
 
 
 
@@ -27,10 +27,8 @@ int main(void){
     // print_game_map();
     // cout << is_available_move(12) << endl;
 
-    print_game_map();
-    // cout <<  who_win("X", "O");
-    cout << any_available_move();
 
+    main_menu();
 
 
 
