@@ -20,6 +20,7 @@ int get_computer_move(void);
 int is_available_move(int );
 int who_win(std::string, std::string);
 int any_available_move(void);
+void main_menu(void);
 
 
 void print_game_map(void){
@@ -120,21 +121,21 @@ int who_win(std::string usr_character, std::string computer_character){
     */
 
     // all available moves to win in the game.
-    int moves_to_win[8][3] = {\
+    int moves_to_win[8][3] = {
 
         // horizontal moves to win.
-        {0, 1, 2},\
-        {3, 4, 5},\
-        {6, 7, 8},\
+        {0, 1, 2},
+        {3, 4, 5},
+        {6, 7, 8},
 
         // vertical moves to win.
-        {0, 3, 6},\
-        {1, 4, 7},\
-        {2, 5, 8},\
+        {0, 3, 6},
+        {1, 4, 7},
+        {2, 5, 8},
 
         // diagonal moves to win.
-        {0, 4, 8},\
-        {2, 4, 6},\
+        {0, 4, 8},
+        {2, 4, 6},
     };
 
     // create temp string to check the moves.
@@ -187,6 +188,25 @@ int any_available_move(void){
     }
 
     return 0;
+}
+
+void main_menu(void){
+    /*
+    print the main menu to user.
+    */
+
+    clear();
+
+    std::string OPTIONS[2] = 
+    {
+        "New Game",
+        "Exit"
+    };
+
+    for (int i=0; i<2; i++){
+        std::cout << "\t\t[" << i+1 << "]  " << OPTIONS[i] << std::endl; 
+    }
+
 }
 
 #endif
