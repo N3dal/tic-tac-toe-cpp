@@ -21,6 +21,7 @@ int is_available_move(int );
 int who_win(std::string, std::string);
 int any_available_move(void);
 void main_menu(void);
+int get_usr_choice(void);
 
 
 void print_game_map(void){
@@ -206,7 +207,32 @@ void main_menu(void){
     for (int i=0; i<2; i++){
         std::cout << "\t\t[" << i+1 << "]  " << OPTIONS[i] << std::endl; 
     }
-
 }
+
+int get_usr_choice(void){
+    /*
+    get the usr choice for the main menu.
+    return -1 if there's any wrong.
+    for example if the user give us char or out of range,
+    choice like number 4.
+    */
+    int usr_input = 0;
+    std::cout << ":";
+    std::cin >> usr_input;
+
+    if (size_t(usr_input) == 0){
+        // that's mean it's not integer.
+        return -1;
+    }
+
+    if (usr_input!=1 && usr_input!=2){
+        // that's mean the number is out of range.
+        return -1;
+    }
+
+    return usr_input;
+}
+
+
 
 #endif
