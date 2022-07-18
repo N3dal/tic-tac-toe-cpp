@@ -10,7 +10,7 @@ int available_moves[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
 // i use the string type instead of char type,
 // to be able to concatenate the chars later.
-std::string game_map[9] = {"X", "X", "O", "O", "X", "X", "X", "O", "O"};
+std::string game_map[9] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 
 // game prototypes.
@@ -22,6 +22,7 @@ int who_win(std::string, std::string);
 int any_available_move(void);
 void main_menu(void);
 int get_usr_choice(void);
+void new_game(void);
 
 
 void print_game_map(void){
@@ -84,7 +85,7 @@ int get_computer_move(void){
 
     // note -1 indicate for not available place in the game-board.
 
-    while(available_moves[random_choice] == -1){
+    while(is_available_move(random_choice)){
         random_choice = rand() % 9;
     }
 
@@ -220,7 +221,7 @@ void main_menu(void){
 
     else if (usr_choice == 1){
         // start new game.
-        
+        new_game();
     }
 
     else if (usr_choice == 2){
@@ -254,6 +255,32 @@ int get_usr_choice(void){
     return usr_input;
 }
 
+void new_game(void){
+    /*
+    start new game for the users.
+    */
+
+    // re-init the available_moves to the default.
+    int available_moves[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+
+    // re-init the game_map to the default.
+    std::string game_map[9] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
+
+    print_game_map();
+
+
+    // while (who_win() == -1 && any_available_move()){
+    //     // game main-loop.
+        
+
+
+    // }
+
+
+
+
+}
 
 
 #endif
