@@ -210,22 +210,24 @@ void main_menu(void){
 
 
     // now get the usr choice.
-    int usr_choice = get_usr_choice();
+    int usr_choice = 0;
+    usr_choice = get_usr_choice();
     
-    if (usr_choice!=1 && usr_choice!=2){
-        // recall the function again.
-        // this is bad practice and will cause a big bug.
-        main_menu();
+    if (usr_choice == -1){
+        // kill the program for any wrong input.
+        exit(3);
     }
 
-    else if (usr_choice==1){
+    else if (usr_choice == 1){
         // start new game.
+        
     }
 
-    else if (usr_choice==2){
+    else if (usr_choice == 2){
         // quit from the game.
         exit(3);
     }
+    
 }
 
 int get_usr_choice(void){
